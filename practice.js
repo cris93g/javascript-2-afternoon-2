@@ -112,8 +112,16 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 //Code Here
 function divider(numbersArray){
-
-}
+    evens = numbersArray.filter(function(number){
+    		return number % 2 === 0;
+    });
+    odds = numbersArray.filter(function(number){
+    		return number % 2 !== 0;
+    });
+    return [evens,odds];
+  }
+  
+  divider(numbersArray)
 
 
 ////////// PROBLEM 7 //////////
@@ -171,6 +179,23 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+function removeItem(myGroceryList,item){
+  if(myGroceryList && item){
+    if(myGroceryList.includes(item)){
+      for(let i=0;i< myGroceryList.lenght;i++){
+        if(item=== myGroceryList[i]){
+          myGroceryList.splice(i,1);
+          return myGroceryList;
+        }
+      }
+      
+    }else{ return myGroceryList;}
+  }else{
+    return [];
+  }
+}
+
+
 
 
 ////////// PROBLEM 9 //////////
@@ -201,11 +226,20 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-function addTen(numbers){
-  numbers.map(x => x + 10);
+function addTen(arr){
+    
+  for(var i = 0; i < arr.length; i++){
+    arr[i] = parseInt(arr[i]);
+  }
   
+  arr.forEach(function(val, i, arr){
+    
+    arr[i] = val + 10;
+  });
+  return arr;
 }
-console.log(numbers);
+
+console.log(addTen(numbers));
 
 
 ////////// PROBLEM 11 //////////
